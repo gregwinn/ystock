@@ -3,3 +3,4 @@ README.rdoc
 Rakefile
 init.rb
 lib/ystock.rb
+ystock.gemspec

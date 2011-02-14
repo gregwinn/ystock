@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'rake'
 require 'echoe'
-Echoe.new('ystock', '0.1.5') do |p|
+Echoe.new('ystock', '0.2.1') do |p|
   p.description    = "Get stock information from Yahoo Finance"
   p.url            = "http://github.com/gregwinn/ystock"
   p.author         = "Greg Winn"

@@ -1,0 +1,29 @@
+= Ystock
+
+Get stock information from Yahoo Finance
+
+== Install
+
+	gem install ystock
+
+Add it to your Gemfile
+
+	gem 'ystock'
+
+
+== Usage
+
+This gem uses Yahoo Finance (yahoo.finance.com) to get stock quotes. Remember the delay is up to 20 mins.
+
+	stock = 'aapl'
+	Ystock.get_stock(stock)
+	# Returns an array
+	####
+	# :symbol
+	# :price
+	# :change
+	# :volume
+
+== Build by
+
+Greg Winn

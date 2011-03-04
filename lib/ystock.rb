@@ -16,7 +16,22 @@ module Ystock
     end
     
      @@service_uri = "http://download.finance.yahoo.com/d/quotes.csv"
+     
+     # Ystock.find(['stock', 'stock'])
+     def find(args)
+         output = Array.new
+         args.each do |stock|
+             s = send_request(stock.to_s)
+             a = s.chomp.split(",")
+             output << {:symbol => stock.to_s,
+              :price => a[0],
+              :change => a[1],
+              :volume => a[2]}
 
+         end
+         return output
+     end
+     
     def self.get_stock(stock)
         output = Array.new
         s = send_request(stock)

@@ -24,7 +24,7 @@ This gem uses Yahoo Finance (yahoo.finance.com) to get stock quotes. Remember th
 	# :change
 	# :volume
 	
-Get multiple stock information at once.
+Get multiple stock information at once. Returns a hash.
 
 	Ystock.find(['aapl', 'goog', 'lcre'])
 	

@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ystock}
-  s.version = "0.2.4"
+  s.version = "0.2.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Greg Winn"]
-  s.date = %q{2011-03-03}
+  s.date = %q{2012-05-18}
   s.description = %q{Get stock information from Yahoo Finance}
   s.email = %q{greg@winn.ws}
   s.extra_rdoc_files = ["README.rdoc", "lib/ystock.rb"]

@@ -1,34 +1,59 @@
-= Ystock
+# Ystock
 
 Get stock information from Yahoo Finance
 
-== Install
+## Install
+Add the following to your Gemfile
+```ruby
+gem "ystock", "~> 0.3.0"
+```
+Then run bundle install
 
-	gem install ystock
+# Basic Usage
 
-Add it to your Gemfile
+## Single stock
+After you have installed the gem and included it into your Gemfile you can now start to use ystock.
 
-	gem 'ystock'
+1. In a controller you can do the following:
+```ruby
+class SomeController < ApplicationController
+   def index
+      @stock = Ystock.get_stock('appl')
+   end
+end
+```
 
+2. In your view you may display the results:
 
-== Usage
+```html+ruby
+<p>The price of Apple stock is: $<%=@stock[:AAPL][:price]%></p>
+```
 
-This gem uses Yahoo Finance (yahoo.finance.com) to get stock quotes. Remember the delay is up to 20 mins.
+#### Available data
+```
+<%=@stock[:AAPL][:price]%>
+<%=@stock[:AAPL][:change]%>
+<%=@stock[:AAPL][:volume]%>
+```
 
-	stock = 'aapl'
-	Ystock.get_stock(stock)
-	# Returns an array
-	####
-	# :symbol
-	# :price
-	# :change
-	# :volume
-	
-Get multiple stock information at once. Returns a hash.
+## Usage many stocks
+After you have installed the gem and included it into your Gemfile you can now start to use ystock.
 
-	Ystock.find(['aapl', 'goog', 'lcre'])
-	
+1. In a controller you can do the following:
+```ruby
+class SomeController < ApplicationController
+   def index
+      @stocks = Ystock.find(["aapl", "goog"])
+   end
+end
+```
 
-== Build by
+2. In your view you may display the results:
 
-Greg Winn
+```ruby
+@stocks.each do |sym, values|
+     # sym -> AAPL
+     # values[:price], values[:change], values[:volume] 
+     puts values[:price]
+end
+```

@@ -1,6 +1,6 @@
 # Ystock
 
-Get stock information from Yahoo Finance
+Get stock information from Yahoo Finance and Google (in beta)
 
 ## Install
 Add the following to your Gemfile

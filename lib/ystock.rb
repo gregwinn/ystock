@@ -58,9 +58,11 @@ module Ystock
 			url = @@google_service + "?client=ig&q="
 			url += args
 			resp = Net::HTTP.get_response(URI.parse(url))
-			data = resp.body.gsub("//", "")
-			# => Result = Hash
-			result = JSON.parse(data)
+			if !resp.body.nil?
+				data = resp.body.gsub("//", "")
+				# => Result = Hash
+				result = JSON.parse(data)
+			end
 		end
 	end
      
@@ -94,11 +96,15 @@ module Ystock
 		output = Hash.new
 		results.each_line("\n") do |row|
 			stockdata = row.split(",")
-			stockdata[3] = stockdata[3].gsub("\r\n", "").gsub('"', '')
-			output[stockdata[3].to_sym] = {:symbol => stockdata[3],
-	         :price => stockdata[0],
-	         :change => stockdata[1],
-	         :volume => stockdata[2]}
+			if !stockdata.nil?
+				if !stockdata[3].nil?
+					stockdata[3] = stockdata[3].gsub("\r\n", "").gsub('"', '')
+					output[stockdata[3].to_sym] = {:symbol => stockdata[3],
+		         		:price => stockdata[0],
+		         		:change => stockdata[1],
+		         		:volume => stockdata[2]}
+				end
+			end
 		end
         return output
 	end

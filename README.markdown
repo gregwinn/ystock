@@ -67,7 +67,7 @@ end
 
 ----
 
-## Google Stock (Beta)
+# Google Stock (Beta)
 I have added Google finance to this gem due to the number of stocks not supported by Yahoo.
 
 ## Usage for multiple stocks

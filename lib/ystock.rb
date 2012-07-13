@@ -9,6 +9,7 @@
 require 'cgi'
 require 'json'
 require 'net/http'
+require 'httparty'
 module Ystock
     def ensure_unique(name)
         begin
@@ -17,54 +18,6 @@ module Ystock
     end
     
 	@@service_uri = "http://download.finance.yahoo.com/d/quotes.csv"
-	
-	# => Ystock::Google
-	class Google
-		@@google_service = "http://finance.google.com/finance/info"
-		# => Ystock::Google.find(["aapl", "goog"])
-		def self.find(args)
-			last_stock = args.last
-			stock_string = ""
-			args.each do |stock|
-				if last_stock == stock
-					stock_string += stock
-				else
-					stock_string += stock + ","
-				end
-			end
-			# => Send Request to get quote then format
-			format(send_request(stock_string))
-		end
-		
-		def self.get_quote(arg)
-			# => One stock
-			format(send_request(arg))
-		end
-		
-		def self.format(results)
-			output = Hash.new
-			results.each do |result|
-				output[result["t"].to_sym] = {
-					:symbol => result["t"],
-					:market => result["e"],
-					:price => result["l"],
-		            :change => result["c"]
-				} 
-			end
-			return output
-		end
-		
-		def self.send_request(args)
-			url = @@google_service + "?client=ig&q="
-			url += args
-			resp = Net::HTTP.get_response(URI.parse(url))
-			if !resp.body.nil?
-				data = resp.body.gsub("//", "")
-				# => Result = Hash
-				result = JSON.parse(data)
-			end
-		end
-	end
      
     # Ystock.find(['stock', 'stock'])
 	def self.find(args)
@@ -117,8 +70,15 @@ module Ystock
         end
         return response.body
      end
+
+	def self.version
+		return Gem::VERSION
+	end
+	
+	def self.test
+		return "Test is working 2"
+	end
     
 end
-class ActiveRecord::Base
-  include Ystock
-end
+
+require 'ystock/google'

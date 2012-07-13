@@ -7,7 +7,14 @@ Add the following to your Gemfile
 ```ruby
 gem "ystock", "~> 0.3.4"
 ```
+
+### Dependancies 
+Please note 'httparty' is required to run this gem.
+
+
 Then run bundle install
+
+----
 
 # Basic Usage
 

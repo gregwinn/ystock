@@ -15,26 +15,52 @@ module Ystock
 				end
 			end
 			# => Send Request to get quote then format
-			format(send_request(stock_string))
+			format(send_request(stock_string), true)
 		end
 	
 		def self.get_quote(arg)
 			arg = "?stock=" + arg	
 			# => One stock
-			format(send_request(arg))
+			format(send_request(arg), false)
 		end
 	
-		def self.format(results)
+		def self.format(results, is_many)
 			output = Hash.new
 		
 			results.each do |item|
-				item[1]["finance"].each do |stock|
-					output[stock["symbol"]["data"].to_sym] = {
-						:symbol => stock["symbol"]["data"],
-						:market => stock["exchange"]["data"],
-						:price => stock["last"]["data"],
-			            :change => stock["change"]["data"],
-						:volume => stock["volume"]["data"]
+				if is_many
+					item[1]["finance"].each do |stock|
+						output[stock["symbol"]["data"].to_sym] = {
+							:symbol => stock["symbol"]["data"],
+							:market => stock["exchange"]["data"],
+							:price => stock["last"]["data"],
+				            :change => stock["change"]["data"],
+							:volume => stock["volume"]["data"],
+							:company => stock["company"]["data"],
+							:high => stock["high"]["data"],
+							:low => stock["low"]["data"],
+							:avg_volume => stock["avg_volume"]["data"],
+							:market_cap => stock["market_cap"]["data"],
+							:perc_change => stock["perc_change"]["data"],
+							:y_close => stock["y_close"]["data"],
+							:open => stock["open"]["data"]
+						}
+					end
+				else
+					output = {
+						:symbol => item[1]["finance"]["symbol"]["data"],
+						:market => item[1]["finance"]["exchange"]["data"],
+						:price => item[1]["finance"]["last"]["data"],
+			            :change => item[1]["finance"]["change"]["data"],
+						:volume => item[1]["finance"]["volume"]["data"],
+						:company => item[1]["finance"]["company"]["data"],
+						:high => item[1]["finance"]["high"]["data"],
+						:low => item[1]["finance"]["low"]["data"],
+						:avg_volume => item[1]["finance"]["avg_volume"]["data"],
+						:market_cap => item[1]["finance"]["market_cap"]["data"],
+						:perc_change => item[1]["finance"]["perc_change"]["data"],
+						:y_close => item[1]["finance"]["y_close"]["data"],
+						:open => item[1]["finance"]["open"]["data"]
 					}
 				end
 			end

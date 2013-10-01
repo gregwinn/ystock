@@ -28,7 +28,7 @@ Ystock::Google.get_quote("appl")
 
 ### Multiple Stocks
 ```ruby
-Ystock::Google.find(["aapl", "f", "ggog"])
+Ystock::Google.find(["aapl", "f", "goog"])
 ```
 
 #### Available data
@@ -83,7 +83,7 @@ Ystock::Yahoo.get_quote("appl")
 
 ### Multiple Stocks
 ```ruby
-Ystock::Yahoo.find(["aapl", "f", "ggog"])
+Ystock::Yahoo.find(["aapl", "f", "goog"])
 ```
 
 #### Available data

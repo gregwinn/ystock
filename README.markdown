@@ -1,93 +1,96 @@
 # Ystock
-
-Get stock information from Yahoo Finance and Google (in beta)
+This gem provides you with the latest market data avalable, pulling from both Google and Yahoo Finance.
 
 ## Install
 Add the following to your Gemfile
 ```ruby
-gem "ystock", "~> 0.3.4"
+gem "ystock", "~> 0.4.0"
 ```
 
 ### Dependancies 
 Please note 'httparty' is required to run this gem.
 
-
-Then run bundle install
+## Bundle
+```
+bundle install
+```
 
 ----
 
-# Basic Usage
+# Google Usage
 
-## Single stock
-After you have installed the gem and included it into your Gemfile you can now start to use ystock.
+This uses the Google Finance API to request the latest market information (up to 15 min delay). The Google Fincance API tends to return better and more usful information on the stock requested.
 
-1. In a controller you can do the following:
+### Single Stock
 ```ruby
-class SomeController < ApplicationController
-   def index
-      @stock = Ystock.get_stock('appl')
-   end
-end
+Ystock::Google.get_quote("appl")
 ```
 
-2. In your view you may display the results:
-
-```html+ruby
-<p>The price of Apple stock is: $<%=@stock[:AAPL][:price]%></p>
+### Multiple Stocks
+```ruby
+Ystock::Google.find(["aapl", "f", "ggog"])
 ```
 
 #### Available data
 ```
-<%=@stock[:AAPL][:price]%>
-<%=@stock[:AAPL][:change]%>
-<%=@stock[:AAPL][:volume]%>
-```
-
-## Usage many stocks
-After you have installed the gem and included it into your Gemfile you can now start to use ystock.
-
-1. In a controller you can do the following:
-```ruby
-class SomeController < ApplicationController
-   def index
-      @stocks = Ystock.find(["aapl", "goog"])
-   end
-end
-```
-
-2. In your view you may display the results:
-
-```ruby
-@stocks.each do |sym, values|
-     # sym -> AAPL
-     # values[:price], values[:change], values[:volume] 
-     puts values[:price]
-end
+symbol
+pretty_symbol
+symbol_lookup_url
+company
+exchange
+exchange_timezone
+exchange_utc_offset
+exchange_closing
+divisor
+currency
+last
+high
+low
+volume
+avg_volume
+market_cap
+open
+y_close
+change
+perc_change
+delay
+trade_timestamp
+trade_date_utc
+trade_time_utc
+current_date_utc
+current_time_utc
+symbol_url
+chart_url
+disclaimer_url
+ecn_url
+isld_last
+isld_trade_date_utc
+isld_trade_time_utc
+brut_last
+brut_trade_date_utc
+brut_trade_time_utc
+daylight_savings
 ```
 
 ----
 
-# Google Stock (Beta)
-I have added Google finance to this gem due to the number of stocks not supported by Yahoo.
+# Yahoo Usage
 
-## Usage for multiple stocks
-
-```
-@stocks = Ystock::Google.find(["aapl","goog"])
-
-<%=@stocks[:AAPL][:price]%>
-<%=@stocks[:AAPL][:change]%>
-<%=@stocks[:AAPL][:volume]%>
-<%=@stocks[:AAPL][:market]%>
-```
-
+### Single Stock
 ```ruby
-@stocks.each do |sym, value|
-     puts value[:price]
-end
+Ystock::Yahoo.get_quote("appl")
 ```
 
-#### Sample response
+### Multiple Stocks
+```ruby
+Ystock::Yahoo.find(["aapl", "f", "ggog"])
 ```
-{:AAPL=>{:symbol=>"AAPL", :market=>"Nasdaq", :price=>"598.90", :change=>"-5.53", :volume=>"15285309"}, :GOOG=>{:symbol=>"GOOG", :market=>"Nasdaq", :price=>"570.48", :change=>"-0.71", :volume=>"2310094"}}
+
+#### Available data
 ```
+price
+change
+volume
+symbol
+```
+

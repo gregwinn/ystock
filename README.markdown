@@ -1,7 +1,7 @@
 # Ystock
 This gem provides you with the latest market data avalable, pulling from both Google and Yahoo Finance.
 
-[![Gem Version](https://badge.fury.io/rb/ystock.png)](http://badge.fury.io/rb/ystock) [![Build Status](https://travis-ci.org/gregwinn/ystock.png?branch=master)](https://travis-ci.org/gregwinn/ystock)
+[![Gem Version](https://badge.fury.io/rb/ystock.png)](http://badge.fury.io/rb/ystock) [![Build Status](https://travis-ci.org/gregwinn/ystock.png?branch=master)](https://travis-ci.org/gregwinn/ystock) [![Code Climate](https://codeclimate.com/github/gregwinn/ystock.png)](https://codeclimate.com/github/gregwinn/ystock)
 
 ## Install
 Add the following to your Gemfile

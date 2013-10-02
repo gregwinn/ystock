@@ -32,10 +32,6 @@ describe Ystock, "format" do
 					"isld_trade_date_utc"=>{"data"=>""}, "isld_trade_time_utc"=>{"data"=>""}, "brut_last"=>{"data"=>""}, 
 					"brut_trade_date_utc"=>{"data"=>""}, "brut_trade_time_utc"=>{"data"=>""}, "daylight_savings"=>{"data"=>"true"}}}}
 		format = Ystock::Google.format(results, false)
-		if format[0][:pretty_symbol] == "AAPL"
-			return true
-		else
-			return false
-		end
+		format[0][:pretty_symbol].should eq("AAPL")
 	end
 end

@@ -1,6 +1,8 @@
 # Ystock
 This gem provides you with the latest market data avalable, pulling from both Google and Yahoo Finance.
 
+[![Gem Version](https://badge.fury.io/rb/ystock.png)](http://badge.fury.io/rb/ystock)
+
 ## Install
 Add the following to your Gemfile
 ```ruby

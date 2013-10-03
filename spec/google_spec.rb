@@ -1,6 +1,6 @@
 # => Google Tests
 require "./lib/ystock/google.rb"
-
+require 'httparty'
 describe Ystock, "Errors" do
 	it "send_request should raise TypeError" do
 		# => Below is incorrect usage, and is just for testing proposes.

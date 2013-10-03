@@ -58,8 +58,5 @@ module Ystock
 			return Gem::VERSION
 		end
 		
-		def self.test
-			return "Test is working 2"
-		end
 	end
 end

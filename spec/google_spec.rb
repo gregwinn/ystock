@@ -3,20 +3,25 @@ require "./lib/ystock/google.rb"
 
 describe Ystock, "Errors" do
 	it "send_request should raise TypeError" do
+		# => Below is incorrect usage, and is just for testing proposes.
 		lambda { Ystock::Google.send_request(nil) }.should raise_error(TypeError)
 	end
 
-	it "should raise NoMethodError" do
-		lambda { Ystock::Google.find("aapl") }.should raise_error(NoMethodError)
+	it "many_stocks should raise NoMethodError" do
+		# => Below is incorrect usage, and is just for testing proposes.
+		lambda { Ystock::Google.many_stocks("aapl") }.should raise_error(NoMethodError)
 	end
 
-	it "get_quote should rase TypeError" do
-		lambda { Ystock::Google.get_quote(["aapl", "goog"]) }.should raise_error(TypeError)
+	it "single_stock should rase TypeError" do
+		# => Below is incorrect usage, and is just for testing proposes.
+		lambda { Ystock::Google.single_stock(["aapl", "goog"]) }.should raise_error(TypeError)
 	end
+
+	# => For correct usage please see the readme file.
 end
 
-describe Ystock, "format" do
-	it "format should provide a proper formatting back" do
+describe Ystock, "Formats" do
+	it "should be a usable format" do
 		results = {"xml_api_reply"=>{"version"=>"1", "finance"=>{"module_id"=>"0", "tab_id"=>"0", "mobile_row"=>"0", 
 					"mobile_zipped"=>"1", "row"=>"0", "section"=>"0", "symbol"=>{"data"=>"AAPL"}, "pretty_symbol"=>{"data"=>"AAPL"}, 
 					"symbol_lookup_url"=>{"data"=>"/finance?client=ig&q=AAPL"}, "company"=>{"data"=>"Apple Inc."}, 
@@ -32,6 +37,15 @@ describe Ystock, "format" do
 					"isld_trade_date_utc"=>{"data"=>""}, "isld_trade_time_utc"=>{"data"=>""}, "brut_last"=>{"data"=>""}, 
 					"brut_trade_date_utc"=>{"data"=>""}, "brut_trade_time_utc"=>{"data"=>""}, "daylight_savings"=>{"data"=>"true"}}}}
 		format = Ystock::Google.format(results, false)
-		format[0][:pretty_symbol].should eq("AAPL")
+		format[:pretty_symbol].should eq("AAPL")
+	end
+
+	it "should make a sucsessful request and return data" do
+		# => Make a live request
+		# Using AAPL => Apple Inc.
+		stock = Ystock::Google.quote("AAPL")
+
+		# => Result should be the name of the company from the symbol above.
+		stock[:company].should eq("Apple Inc.")
 	end
 end

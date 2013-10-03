@@ -6,11 +6,11 @@ This gem provides you with the latest market data avalable, pulling from both Go
 ## Install
 Add the following to your Gemfile
 ```ruby
-gem "ystock", "~> 0.4.0"
-```
+gem "ystock", "~> 0.4.1"
 
-### Dependancies 
-Please note 'httparty' is required to run this gem.
+# Or simply install it
+gem install ystock -v=0.4.1
+```
 
 ## Bundle
 ```
@@ -21,16 +21,15 @@ bundle install
 
 # Google Usage
 
-This uses the Google Finance API to request the latest market information (up to 15 min delay). The Google Fincance API tends to return better and more usful information on the stock requested.
+This uses the Google Finance API to request the latest market information (up to 15 min delay). The Google Finance API tends to return better and more useful information on the stock requested vs Yahoo.
 
-### Single Stock
+## Quote Usage
 ```ruby
-Ystock::Google.get_quote("appl")
-```
+# Single Stock lookup {String}
+Ystock::Google.quote("appl")
 
-### Multiple Stocks
-```ruby
-Ystock::Google.find(["aapl", "f", "goog"])
+# Multiple Stock lookup {Array}
+Ystock::Google.quote(["aapl", "f", "goog"])
 ```
 
 #### Available data
@@ -95,4 +94,16 @@ change
 volume
 symbol
 ```
+
+----
+
+### Tested with
+This gem was tested with:
+
+Ruby: 1.9.2
+
+Ruby: 1.9.3
+
+Ruby: 2.0.0
+
 

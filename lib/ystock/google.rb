@@ -1,4 +1,3 @@
-require 'httparty'
 module Ystock
 	class Google
 		@@google_service = "http://www.google.com/ig/api"

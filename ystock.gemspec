@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/gregwinn/ystock}
   s.require_paths = ["lib"]
   s.summary = %q{Grab stock information from Yahoo and Google Finance}
+  s.license = 'MIT'
 
   # => Other gem dependency
   s.add_dependency("httparty", "~> 0.10.1")

@@ -45,10 +45,10 @@ module Ystock
 					if !stockdata[3].nil?
 						stockdata[3] = stockdata[3].gsub("\r\n", "").gsub('"', '')
 
-						output << [{:symbol => stockdata[3],
+						output << {:symbol => stockdata[3],
 			         		:price => stockdata[0],
 			         		:change => stockdata[1],
-			         		:volume => stockdata[2]}]
+			         		:volume => stockdata[2]}
 
 					end
 				end

@@ -77,13 +77,12 @@ daylight_savings
 
 # Yahoo Usage
 
-### Single Stock
+## Quote Usage
 ```ruby
-Ystock::Yahoo.get_quote("appl")
-```
+# Single Stock lookup {String}
+Ystock::Yahoo.quote("appl")
 
-### Multiple Stocks
-```ruby
+# Multiple Stock lookup {Array}
 Ystock::Yahoo.find(["aapl", "f", "goog"])
 ```
 

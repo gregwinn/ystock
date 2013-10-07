@@ -2,6 +2,17 @@ module Ystock
 	class Yahoo
 	    @@service_uri = "http://download.finance.yahoo.com/d/quotes.csv"
 	   
+		def self.quote(stocks)
+			if stocks.is_a? Array
+				# => Many stocks
+				find(stocks)
+			else
+				# => Single Stock
+				get_quote(stocks)
+			end
+		end
+		
+		private
 		def self.find(args)
 			stock_string = ""
 			last_stock = args.last.to_s
@@ -19,11 +30,11 @@ module Ystock
 	        stock_data = Hash.new
 	        s = send_request(stock)
 	        a = s.chomp.split(",") 
-	        return [{:symbol => stock,
+	        return {:symbol => stock,
 	                :price => a[0],
 	                :change => a[1],
 	                :volume => a[2]
-	                }]
+	                }
 	    end
 		
 		def self.format(results)

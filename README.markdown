@@ -6,10 +6,10 @@ This gem provides you with the latest market data avalable, pulling from both Go
 ## Install
 Add the following to your Gemfile
 ```ruby
-gem "ystock", "~> 0.4.1"
+gem "ystock", "~> 0.4.2"
 
 # Or simply install it
-gem install ystock -v=0.4.1
+gem install ystock -v=0.4.2
 ```
 
 ## Bundle

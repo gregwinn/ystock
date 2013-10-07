@@ -83,7 +83,7 @@ daylight_savings
 Ystock::Yahoo.quote("appl")
 
 # Multiple Stock lookup {Array}
-Ystock::Yahoo.find(["aapl", "f", "goog"])
+Ystock::Yahoo.quote(["aapl", "f", "goog"])
 ```
 
 #### Available data

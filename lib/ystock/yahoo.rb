@@ -65,7 +65,7 @@ module Ystock
 		end
 
 	    def self.send_request(args)
-	        completed_path = @@service_uri + "?f=l1c1v1sk2ohg&s=" + args
+	        completed_path = @@service_uri + "?f=l1c1vsk2ohg&s=" + args
 	        uri = URI.parse(completed_path)
 	        response = Net::HTTP.start(uri.host, uri.port) do |http|
 	            http.get completed_path

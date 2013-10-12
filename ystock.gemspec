@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'ystock'
-  s.version = "0.4.3"
+  s.version = "0.4.4"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Greg Winn"]
   s.date = %q{2012-06-09}

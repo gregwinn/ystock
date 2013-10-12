@@ -13,3 +13,4 @@ describe Ystock do
 		end
 	end
 end
+

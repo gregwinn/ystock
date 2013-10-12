@@ -97,6 +97,10 @@ price
 change
 volume
 symbol
+change_percent
+open
+day_high
+day_low
 ```
 
 ----

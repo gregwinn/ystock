@@ -108,7 +108,7 @@ day_low
 ### Tested with
 This gem was tested with:
 
-Ruby: 1.9.2 -> No longer supported.
+Ruby: ~~1.9.2~~ -> No longer supported.
 
 Ruby: 1.9.3
 

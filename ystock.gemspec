@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'ystock'
-  s.version = "0.4.4"
+  s.version = "0.4.5"
   s.authors = ["Greg Winn"]
   s.date = %q{2012-06-09}
   s.description = %q{Grab stock information from Yahoo and Google Finance}

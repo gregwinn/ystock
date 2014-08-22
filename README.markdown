@@ -6,10 +6,10 @@ This gem provides you with the latest market data avalable, pulling from both Go
 ## Install
 Add the following to your Gemfile
 ```ruby
-gem "ystock", "~> 0.4.5"
+gem "ystock", "~> 0.4.6"
 
 # Or simply install it
-gem install ystock -v=0.4.5
+gem install ystock -v=0.4.6
 ```
 
 ## Bundle
@@ -24,59 +24,10 @@ require 'ystock'
 
 ----
 
-# Google Usage
+# Google No longer supported :(
 
-This uses the Google Finance API to request the latest market information (up to 15 min delay). The Google Finance API tends to return better and more useful information on the stock requested vs Yahoo.
+Sorry, Google shut this service down. The code will remain in the gem until a later version as a memorial to the Google Finance API.
 
-## Quote Usage
-```ruby
-# Single Stock lookup {String}
-Ystock::Google.quote("appl")
-
-# Multiple Stock lookup {Array}
-Ystock::Google.quote(["aapl", "f", "goog"])
-```
-
-#### Available data
-```
-symbol
-pretty_symbol
-symbol_lookup_url
-company
-exchange
-exchange_timezone
-exchange_utc_offset
-exchange_closing
-divisor
-currency
-last
-high
-low
-volume
-avg_volume
-market_cap
-open
-y_close
-change
-perc_change
-delay
-trade_timestamp
-trade_date_utc
-trade_time_utc
-current_date_utc
-current_time_utc
-symbol_url
-chart_url
-disclaimer_url
-ecn_url
-isld_last
-isld_trade_date_utc
-isld_trade_time_utc
-brut_last
-brut_trade_date_utc
-brut_trade_time_utc
-daylight_savings
-```
 
 ----
 
@@ -101,6 +52,12 @@ change_percent
 open
 day_high
 day_low
+previous_close
+after_hours_change
+ma50 => 50 day moving average
+ma200 => 200 day moving average
+week52_range => 52 week range
+pe_ratio => P/E Ratio (Realtime)
 ```
 
 ----
@@ -113,5 +70,3 @@ Ruby: ~~1.9.2~~ -> No longer supported.
 Ruby: 1.9.3
 
 Ruby: 2.0.0
-
-

@@ -30,7 +30,7 @@ The examples below are how to use the Yahoo potion of the gem. All Yahoo request
 ## Quote Usage
 ```ruby
 # Single Stock lookup {String}
-Ystock::Yahoo.quote("appl")
+Ystock::Yahoo.quote("aapl")
 
 # Multiple Stock lookup {Array}
 Ystock::Yahoo.quote(["aapl", "f", "goog"])

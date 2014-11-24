@@ -6,10 +6,10 @@ This gem provides you with the latest market data avalable, pulling from Yahoo F
 ## Install
 Add the following to your Gemfile
 ```ruby
-gem "ystock", "~> 0.4.6"
+gem "ystock", "~> 0.4.8"
 
 # Or simply install it
-gem install ystock -v=0.4.6
+gem install ystock -v=0.4.8
 ```
 
 ## Bundle
@@ -52,6 +52,7 @@ ma50 => 50 day moving average
 ma200 => 200 day moving average
 week52_range => 52 week range
 pe_ratio => P/E Ratio (Realtime)
+exchange
 ```
 
 ----

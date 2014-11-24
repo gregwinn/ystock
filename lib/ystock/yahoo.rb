@@ -43,7 +43,8 @@ module Ystock
 					:ma50 => a[10],
 					:ma200 => a[11],
 					:week52_range => a[12].gsub("\r\n", "").gsub('"', ''),
-					:pe_ratio => a[13]
+					:pe_ratio => a[13],
+					:exchange => a[14]
 	                }
 	    end
 
@@ -68,7 +69,9 @@ module Ystock
 							:ma50 => stockdata[10],
 							:ma200 => stockdata[11],
 							:week52_range => stockdata[12].gsub("\r\n", "").gsub('"', ''),
-							:pe_ratio => stockdata[13]}
+							:pe_ratio => stockdata[13],
+							:exchange => stockdata[14]
+						}
 
 					end
 				end
@@ -77,7 +80,7 @@ module Ystock
 		end
 
 	    def self.send_request(args)
-	        completed_path = @@service_uri + "?f=l1c1vsp2ohgpc8m3m4wr2&s=" + args
+	        completed_path = @@service_uri + "?f=l1c1vsp2ohgpc8m3m4wr2x&s=" + args
 	        uri = URI.parse(completed_path)
 	        response = Net::HTTP.start(uri.host, uri.port) do |http|
 	            http.get completed_path

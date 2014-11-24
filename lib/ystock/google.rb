@@ -1,3 +1,9 @@
+# This code is in the repo at this point for historical use
+# I will replace it with something new or move it to a historical
+# branch at some point.
+#
+# Google's Finance API shutdown some time ago.
+# No Ystock::Google methods will function.
 module Ystock
 	class Google
 		@@google_service = "http://www.google.com/ig/api"

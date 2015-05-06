@@ -25,7 +25,7 @@ require 'ystock'
 ----
 
 # Yahoo Usage
-The examples below are how to use the Yahoo potion of the gem. All Yahoo requests are made with Ystock::Yahoo
+The examples below are how to use the Yahoo potion of the gem. All Yahoo requests are made with Ystock.quote
 
 ## Quote Usage
 ```ruby

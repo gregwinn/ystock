@@ -1,6 +1,6 @@
 # => Yahoo Tests
 require 'spec_helper'
-require "./lib/ystock/yahoo.rb"
+require "./lib/ystock/ystock.rb"
 describe Ystock do
 	context "service response" do
 		it "should retrieve stock symbol" do

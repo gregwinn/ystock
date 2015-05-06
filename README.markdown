@@ -6,10 +6,10 @@ This gem provides you with the latest market data avalable, pulling from Yahoo F
 ## Install
 Add the following to your Gemfile
 ```ruby
-gem "ystock", "~> 0.4.8"
+gem "ystock", "~> 0.4.10"
 
 # Or simply install it
-gem install ystock -v=0.4.8
+gem install ystock -v=0.4.10
 ```
 
 ## Bundle
@@ -30,10 +30,10 @@ The examples below are how to use the Yahoo potion of the gem. All Yahoo request
 ## Quote Usage
 ```ruby
 # Single Stock lookup {String}
-Ystock::Yahoo.quote("aapl")
+Ystock.quote("aapl")
 
 # Multiple Stock lookup {Array}
-Ystock::Yahoo.quote(["aapl", "f", "goog"])
+Ystock.quote(["aapl", "f", "goog"])
 ```
 
 #### Available data

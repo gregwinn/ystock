@@ -9,7 +9,5 @@
 require 'cgi'
 require 'json'
 require 'net/http'
-require 'httparty'
 
-require 'ystock/yahoo'
-require 'ystock/google'
+require 'ystock/ystock'

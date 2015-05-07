@@ -6,10 +6,10 @@ This gem provides you with the latest market data avalable, pulling from Yahoo F
 ## Install
 Add the following to your Gemfile
 ```ruby
-gem "ystock", "~> 0.4.9"
+gem "ystock", "~> 0.4.10"
 
 # Or simply install it
-gem install ystock -v=0.4.9
+gem install ystock -v=0.4.10
 ```
 
 ## Bundle

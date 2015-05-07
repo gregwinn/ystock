@@ -10,4 +10,4 @@ require 'cgi'
 require 'json'
 require 'net/http'
 
-require_relative 'ystock/yahoo'
+require 'ystock/ystock'

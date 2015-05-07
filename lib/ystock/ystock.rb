@@ -1,5 +1,5 @@
-module Ystock
-	class Yahoo
+
+	class Ystock
 	    @@service_uri = "http://download.finance.yahoo.com/d/quotes.csv"
 
 		def self.quote(stocks)
@@ -93,4 +93,4 @@ module Ystock
 		end
 
 	end
-end
+

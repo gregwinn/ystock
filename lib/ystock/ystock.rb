@@ -27,24 +27,7 @@
 		end
 
 	    def self.get_quote(stock)
-	        response = send_request(stock)
-	        a = response.chomp.split(",")
-	        return {:symbol => stock,
-	                :price => a[0],
-	                :change => a[1],
-	                :volume => a[2],
-					:change_percent => a[4].gsub("\r\n", "").gsub('"', ''),
-					:open => a[5],
-					:day_high => a[6],
-					:day_low => a[7],
-					:previous_close => a[8],
-					:after_hours_change => a[9].gsub("\r\n", "").gsub('"', ''),
-					:ma50 => a[10],
-					:ma200 => a[11],
-					:week52_range => a[12].gsub("\r\n", "").gsub('"', ''),
-					:pe_ratio => a[13],
-					:exchange => a[14]
-	                }
+	        return format(send_request(stock)).first
 	    end
 
 		def self.format(results)
@@ -52,6 +35,8 @@
 			results.each_line("\n") do |row|
 				stockdata = row.split(",")
 				if !stockdata.nil?
+
+					# => Check to see if the Symbol is nil
 					if !stockdata[3].nil?
 						stockdata[3] = stockdata[3].gsub("\r\n", "").gsub('"', '')
 

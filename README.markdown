@@ -29,10 +29,10 @@ The examples below are how to use the Yahoo potion of the gem. All Yahoo request
 
 ## Quote Usage
 ```ruby
-# Single Stock lookup {String}
+# Single Stock lookup 'String'
 Ystock.quote("aapl")
 
-# Multiple Stock lookup {Array}
+# Multiple Stock lookup [Array]
 Ystock.quote(["aapl", "f", "goog"])
 ```
 
@@ -57,7 +57,7 @@ exchange
 
 ----
 
-### Tested with
+### Tested Ruby Versions
 This gem was tested with:
 
 Ruby: ~~1.9.2~~ -> No longer supported.
@@ -69,3 +69,10 @@ Ruby: 2.0.0
 Ruby: 2.1.2
 
 Ruby: 2.2.2
+
+
+### Run RSpec tests
+```
+rspec spec/yahoo_spec.rb
+```
+

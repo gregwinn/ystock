@@ -27,9 +27,8 @@
 		end
 
 	    def self.get_quote(stock)
-	        stock_data = Hash.new
-	        s = send_request(stock)
-	        a = s.chomp.split(",")
+	        response = send_request(stock)
+	        a = response.chomp.split(",")
 	        return {:symbol => stock,
 	                :price => a[0],
 	                :change => a[1],

@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name = 'ystock'
-  s.version = "0.4.10"
+  s.version = "0.4.11"
   s.authors = ["Greg Winn"]
-  s.date = '2010-05-06'
+  s.date = '2015-07-28'
   s.description = %q{Grab stock information from Yahoo}
   s.email = %q{winn.greg@gmail.com}
   s.extra_rdoc_files = ["README.markdown", "lib/ystock.rb"]

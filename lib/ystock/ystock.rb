@@ -5,31 +5,14 @@
 		def self.quote(stocks)
 			if stocks.is_a? Array
 				# => Many stocks
-				find(stocks)
+				format(send_request(stocks.join(",")))
 			else
 				# => Single Stock
-				get_quote(stocks)
+				format(send_request(stocks)).first
 			end
 		end
 
 		private
-		def self.find(args)
-			stock_string = ""
-			last_stock = args.last.to_s
-	        args.each do |stock|
-				if last_stock == stock.to_sym
-					stock_string += stock.to_s
-				else
-					stock_string += stock.to_s + ","
-				end
-	        end
-			format(send_request(stock_string))
-		end
-
-	    def self.get_quote(stock)
-	        return format(send_request(stock)).first
-	    end
-
 		def self.format(results)
 			output = Array.new
 			results.each_line("\n") do |row|

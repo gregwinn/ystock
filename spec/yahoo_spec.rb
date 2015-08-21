@@ -12,5 +12,11 @@ describe Ystock do
 			expect(stock[0][:symbol]).to include("GOOG")
 		end
 	end
-end
 
+	context "Gem version" do
+		it "should not be empty" do
+			gemversion = Ystock.version
+			expect(gemversion).not_to be_empty
+		end
+	end
+end

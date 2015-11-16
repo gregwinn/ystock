@@ -54,6 +54,7 @@ week52_range => 52 week range
 pe_ratio => P/E Ratio (Realtime)
 exchange
 float
+short_ratio
 ```
 
 ----
